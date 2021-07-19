@@ -18,6 +18,7 @@ public class Sorter<T> {
         for (int i = 0; i < toSortLst.length - 1; i++) {
             int minPos = i;
             for (int j = i + 1; j < toSortLst.length; j++) {
+                //执行策略方法
                 minPos = comparator.compare(toSortLst[j], toSortLst[minPos]) == -1 ? j : minPos;
             }
             swap(toSortLst, i, minPos);

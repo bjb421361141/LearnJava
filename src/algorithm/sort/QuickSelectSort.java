@@ -52,6 +52,13 @@ public class QuickSelectSort {
         return index - 1;
     }
 
+    /**
+     * 两个方向进行搜索替换
+     * @param arr 数组
+     * @param left 左边界
+     * @param right 右边界
+     * @return
+     */
     private int partitionTwoDirection(int[] arr, int left, int right) {
         int pivot = left;
         int fidx = left + 1;
