@@ -18,7 +18,7 @@ public class BernsteinHash extends HashFunction {
         int hash = 0;
         int i;
         for (i = 0; i < value.length(); ++i) {
-            hash = seed * hash + value.charAt(i);  //常用的乘数还有131, 1313, 13131, 131313
+            hash = seed * hash + value.charAt(i);  //常用的乘数还有131, 1313
         }
         return hash;
         //return  FNVHash1(value)
@@ -42,5 +42,10 @@ public class BernsteinHash extends HashFunction {
         hash ^= hash >> 17;
         hash += hash << 5;
         return hash;
+    }
+
+    public static void main(String[] args) {
+        BernsteinHash bernsteinHash = new BernsteinHash(31);
+        bernsteinHash.hash("100");
     }
 }
