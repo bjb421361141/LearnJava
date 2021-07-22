@@ -1,4 +1,4 @@
-package designPatterns.Builder;
+package designPatterns.builder;
 
 public class Person {
     String name;

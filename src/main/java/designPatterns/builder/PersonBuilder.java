@@ -1,4 +1,4 @@
-package designPatterns.Builder;
+package designPatterns.builder;
 
 /**
  * 简化复杂类的初始化工作
