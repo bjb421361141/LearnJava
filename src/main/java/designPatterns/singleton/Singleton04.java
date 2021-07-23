@@ -34,7 +34,7 @@ public class Singleton04 {
     public static void main(String[] args) {
         for(int i=0; i<100; i++) {
             new Thread(()->{
-                System.out.println(Singleton01.getInstance().hashCode());
+                System.out.println(Singleton04.getInstance().hashCode());
             }).start();
         }
     }

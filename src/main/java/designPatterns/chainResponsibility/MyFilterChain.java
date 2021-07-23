@@ -22,8 +22,10 @@ public class MyFilterChain implements MyFilter {   //implements MyFilter
     }
 
     public void doFilter(MyRequest request, MyResponse response) {
-        if(curindx > myFilters.size()) {
-            target.execute(); //执行业务方法后返回
+        if(curindx >= myFilters.size()) {
+            if(target != null) {
+                target.execute(); //执行业务方法后返回
+            }
             return;
         };
         MyFilter myFilter = myFilters.get(curindx);
@@ -31,15 +33,10 @@ public class MyFilterChain implements MyFilter {   //implements MyFilter
         myFilter.doFilter(request,response,this);
     }
 
-    MyFilter next() {
-        if (curindx >= myFilters.size()) {
-            return null;
-        }
-        return myFilters.get(curindx++);
-    }
-
     @Override
     public void doFilter(MyRequest request, MyResponse response, MyFilterChain myFilterChain) {
-        //fixme 调用自身的链条进行过滤
+        request.setInstr(request.getInstr()+" deal MyFilterChain："+this.getClass().getName()+"!");
+        this.doFilter(request, response);
+        myFilterChain.doFilter(request,response); //继续调用下一个链条
     }
 }
