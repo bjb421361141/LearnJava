@@ -20,9 +20,9 @@ public class NioServer {
      */
     private ExecutorService service = Executors.newFixedThreadPool(5);
 
-//    public static void main(String[] args){
-//        new NioServer(8080).start();
-//    }
+    public static void main(String[] args){
+        new NioServer(8080).start();
+    }
 
     public NioServer(int port) {
         this.port = port;

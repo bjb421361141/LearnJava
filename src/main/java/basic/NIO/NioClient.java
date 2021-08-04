@@ -13,18 +13,18 @@ public class NioClient {
     private static final int port = 8080;
     private Selector selector;
 
-//    public static void main(String[] args){
-//        for (int i=0;i<3;i++) {
-//            new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    NioClient client = new NioClient();
-//                    client.connect(host, port);
-//                    client.listen();
-//                }
-//            }).start();
-//        }
-//    }
+    public static void main(String[] args){
+        for (int i=0;i<3;i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    NioClient client = new NioClient();
+                    client.connect(host, port);
+                    client.listen();
+                }
+            }).start();
+        }
+    }
 
     public void connect(String host, int port) {
         try {
