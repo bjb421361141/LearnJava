@@ -5,7 +5,13 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ListCollections {
+/**
+ * 常用list类
+ * ArrayList：数组实现
+ * Vector(线程同步)：数组实现
+ * linkedlist：链表实现 Node 内部类
+ */
+public class MyList {
 
     /**
      * List集合下的 队列、双向队列和栈的使用
