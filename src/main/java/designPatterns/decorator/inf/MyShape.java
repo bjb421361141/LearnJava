@@ -1,5 +1,5 @@
 package designPatterns.decorator.inf;
 
-public interface Sharp {
+public interface MyShape {
     void draw();
 }

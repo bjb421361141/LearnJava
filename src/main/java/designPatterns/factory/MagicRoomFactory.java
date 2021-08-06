@@ -1,9 +1,11 @@
 package designPatterns.factory;
 
 import designPatterns.factory.inf.Door;
+import designPatterns.factory.obj.MagicDoor;
 import designPatterns.factory.obj.MagicRoom;
 import designPatterns.factory.inf.Room;
 import designPatterns.factory.inf.Wall;
+import designPatterns.factory.obj.MagicWall;
 
 /**
  * 生产一系列魔法房间
@@ -21,11 +23,11 @@ public class MagicRoomFactory extends RoomAbstractFactory {
 
     @Override
     public Wall getWall(String wallType) {
-        return null;
+        return new MagicWall();
     }
 
     @Override
     public Door getDoor(Room r1, Room r2, String doorType) {
-        return null;
+        return new MagicDoor(r1,r2);
     }
 }

@@ -31,6 +31,6 @@ public class OrdinaryRoomFactory extends RoomAbstractFactory {
 
     @Override
     public Door getDoor(Room r1, Room r2, String doorType) {
-        return new OrdinaryDoor();
+        return new OrdinaryDoor(r1, r2);
     }
 }

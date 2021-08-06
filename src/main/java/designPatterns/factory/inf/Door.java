@@ -5,7 +5,8 @@ public abstract class Door extends Mapsite{
     Room r2;
     boolean isOpened = false;
 
-    void Door(Room r1,Room r2) {
+    public void Door(Room r1,Room r2) {
+        System.out.println("这是门的构造方法！");
         this.r1 = r1;
         this.r2 = r2;
     }

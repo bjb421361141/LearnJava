@@ -1,11 +1,11 @@
 package designPatterns.decorator;
 
-import designPatterns.decorator.inf.Sharp;
+import designPatterns.decorator.inf.MyShape;
 
-public class OtherDecorator implements Sharp {
-    Sharp innerSharp;
+public class OtherDecorator implements MyShape {
+    MyShape innerSharp;
 
-    public OtherDecorator(Sharp innerSharp) {
+    public OtherDecorator(MyShape innerSharp) {
         this.innerSharp = innerSharp;
     }
 

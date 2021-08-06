@@ -5,6 +5,7 @@ import designPatterns.chainResponsibility.inf.MyFilter;
 import java.util.ArrayList;
 
 /**
+ *
  * 如果有动态增加固定的过滤器可以通过继承 MyFilter 来实现拓展
  */
 public class MyFilterChain implements MyFilter {   //implements MyFilter
@@ -37,6 +38,7 @@ public class MyFilterChain implements MyFilter {   //implements MyFilter
     public void doFilter(MyRequest request, MyResponse response, MyFilterChain myFilterChain) {
         request.setInstr(request.getInstr()+" deal MyFilterChain："+this.getClass().getName()+"!");
         this.doFilter(request, response);
+        request.setInstr(request.getInstr()+" end deal MyFilterChain："+this.getClass().getName()+"!");
         myFilterChain.doFilter(request,response); //继续调用下一个链条
     }
 }

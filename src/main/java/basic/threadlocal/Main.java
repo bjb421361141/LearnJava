@@ -12,7 +12,36 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
+
+    /**
+     * 测试标签 中的操作
+     * @throws IOException
+     */
+    void smallTest() throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        retry:
+        for (;;) {
+            for (;;) {
+                System.out.println(" working now!");
+                String str = bufferedReader.readLine();
+                if ("quit".equals(str)){
+                    return; //直接结束方法
+                }
+                if ("try".equals(str)) {
+                    break retry; //跳回至标签继续执行余下内容
+                }
+                if ("continue".equals(str)) {
+                    continue retry; //继续循环
+                }
+            }
+        }
+        System.out.println("do things.");
+    }
 
     public static void main(String[] args) {
         ExpressionParser parser = new SpelExpressionParser();

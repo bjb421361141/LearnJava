@@ -2,6 +2,7 @@ package designPatterns.bridge;
 
 /**
  * 桥接模式是使用抽象对象中放置一个具体的实现类来防止通过继承引起的类爆炸问题
+ * 示例代码：不同照片格式在不同平台上展现的问题
  */
 public class Main {
     public static void main(String[] args){
