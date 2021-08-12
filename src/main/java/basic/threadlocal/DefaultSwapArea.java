@@ -7,7 +7,8 @@ import basic.threadlocal.inf.SwapAreaStatics;
 import java.util.HashMap;
 
 /**
- * 可以做一些表达式的翻译？
+ * 本身继承于HashMap
+ * 内聚一个expressionParser 对象对设置的值进行翻译（这边主要是用spring el表达式对map对象数据的操作）
  */
 public class DefaultSwapArea extends HashMap implements SwapArea, SwapAreaStatics {
     private static final long serialVersionUID = 4305683403992544070L;
