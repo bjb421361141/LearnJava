@@ -24,13 +24,11 @@ public class MyThread extends Thread {
     public void run() {
         System.out.println("Thread name " + Thread.currentThread().getName());
         System.out.println("run 方法只是线程被激活后调用的方法，不要直接使用！");
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        while (!exit) {
+        while (!exit) {  //这边也可以使用 this.isInterrupted() 中的标志位 和 interrupt()来控制线程的终止
             try {
                 System.out.println("子线程 is running！");
                 sleep(Long.parseLong("3000"));
                 //doSomeWork
-                //从ThreadLocal中获取共享数据
             } catch (Exception e) {
                 System.out.println("线程捕获InterruptException弹出");
                 break; //这边来处理异常弹出
@@ -39,16 +37,13 @@ public class MyThread extends Thread {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ThreadLocal<String> threadLocal = new ThreadLocal<>();
         Thread mainThread = Thread.currentThread();
         System.out.println("主线程：" + mainThread.getName());
         MyThread myThread = new MyThread("线程1");
         //myThread.run();  //仅是方法调用 线程还是主线程在跑
         System.out.println("------------子线程启动---------------------");
         myThread.start();
-        System.out.println("------------ 子线程从主线程中获取共享的数据 ---------------------");
 
-        threadLocal.set("设置共享值"); // 这个时候  主线程中的ThreadLocalMap 对象中存了Entry<threadLocal,'设置共享值'>
         System.out.println("------------线程终止方法-------------------");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         for (; ; ) {

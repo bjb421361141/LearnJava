@@ -1,4 +1,5 @@
 # Project exclude paths
+/target/
 /out/
 /src/十大经典算法.md
 /src/待办事项.txt
