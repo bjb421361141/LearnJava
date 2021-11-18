@@ -1,5 +1,7 @@
 package basic.concurrent;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
@@ -20,7 +22,7 @@ import java.util.concurrent.TimeoutException;
 public class CyclicBarrierDemo {
     public static void main(String[] args) {
         int wrterNums = 2;
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(wrterNums + 1, new Runnable() {
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(wrterNums, new Runnable() {
             @Override
             public void run() {
                 System.out.println("拦截后调用该线程进行后续操作");

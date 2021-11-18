@@ -13,12 +13,12 @@ public class Singleton04 {
     /**
      * 枚举类型是线程安全的，并且只会装载一次
      */
-    private enum EnumSingleton {
+    private enum Singleton {
         INSTANCE;
 
         private final Singleton04 instance;
 
-        EnumSingleton() { //枚举类的构造方法
+        Singleton() { //枚举类的构造方法
             instance = new Singleton04();
         }
 
@@ -28,7 +28,7 @@ public class Singleton04 {
     }
 
     public static Singleton04 getInstance() {
-        return EnumSingleton.INSTANCE.getInstance();
+        return Singleton.INSTANCE.getInstance();
     }
 
     public static void main(String[] args) {
